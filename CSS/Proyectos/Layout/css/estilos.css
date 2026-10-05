@@ -1,0 +1,147 @@
+*,
+*::after,
+*::before {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --titulos: #e6e1e3;
+    --parrafos: #c2bcc3;
+    --boton: #9f86ff;
+    --boton-texto: #1a0056;
+    --card-color: #1c1b1d;
+    --aside-color: #211f21;
+    --fuente-bold: 600;
+}
+
+body {
+    background: #141314;
+    color: var(--titulos);
+    font-family: "Google Sans", serif;
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    min-height: 90vh;
+
+    .titulo {
+        font-size: 30px;
+    }
+}
+
+.header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: clamp(10px, 3vw, 20px);
+
+    .logo {
+        font-size: clamp(30px, 5vw, 50px);
+    }
+
+    nav {
+        display: flex;
+        gap: clamp(10px, 3vw, 20px);
+
+        a {
+            text-decoration: none;
+            color: var(--boton-texto);
+            background: var(--boton);
+            font-weight: var(--fuente-bold);
+            font-size: clamp(14px, 3vw, 17px);
+            gap: 20px;
+            padding: 15px;
+            border-radius: 25px;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        & {
+            flex-direction: column;
+        }
+    }
+}
+
+.main {
+    grid-column: 1 / span 2;
+    background: var(--card-color);
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 3vw, 20px);
+
+    p {
+        line-height: 30px;
+    }
+
+    .boton {
+        display: inline-block;
+        padding: 15px;
+        background: var(--boton);
+        font-weight: var(--fuente-bold);
+        color: var(--boton-texto);
+        border-radius: 25px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 750px) {
+        & {
+            grid-column: 1 / -1;
+        }
+    }
+}
+
+.aside {
+    background-color: var(--aside-color);
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 750px) {
+        & {
+            grid-column: 1 / -1;
+            min-height: 200px;
+        }
+    }
+}
+
+.widgets {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+
+    .widget {
+        background: var(--card-color);
+        min-height: 100px;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.footer {
+    grid-column: 1 / -1;
+    padding: 40px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
